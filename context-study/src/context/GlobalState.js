@@ -20,13 +20,20 @@ const GlobalState = (props) => {
     });
   };
 
-  
+  const minOne = () => {
+    dispatch({
+      type: "DECREMENT",
+      payload: state.count,
+    });
+  };
+
   return (
     <GlobalContext.Provider
       value={{
-        //   This state is coming from the useReducer
+        // This state is coming from the useReducer
         count: state.count,
         addOne,
+        minOne,
       }}
     >
       {props.children}
